@@ -1,0 +1,22 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "backend of Lyft App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robert-Lark/lyftApp.git"
+  },
+  "author": "Rob Lark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Robert-Lark/lyftApp/issues"
+  },
+  "homepage": "https://github.com/Robert-Lark/lyftApp#readme",
+  "dependencies": {
+    "expresss": "0.0.0"
+  }
+}
