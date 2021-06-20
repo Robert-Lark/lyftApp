@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+    <p class="before">Welcome to the Lyft Application App</p>
+    <input type="text" placeholder="Type something..." id="input">
+    <button type="button" onclick="displayLyft();">Get Value</button>
+    <h4 id="mutatedInput"></h4>
+    </input>
+    <script>
+      //endpoints
+      const endpointMain = "http://localhost:3001/";
+      const endpointPost = "http://localhost:3001/test";
+      //rendered text
+      const afterEl = document.getElementById("mutatedInput");
+      //Error Handling
+      function handleError(err) {
+        console.log("OH NO!");
+        console.log(err);
+        afterEl.textContent = `Something went wrong: ${err}`;
+      }
+      //POST request
+      async function displayLyft() {
+        afterEl.textContent = 'Loading....';
+        const inputVal = document.getElementById("input").value;
+        const rawResponse = await fetch(endpointPost, {
+            method: 'POST',
+            headers: {
+           'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"string_to_cut": inputVal}),
+        })
+        .then((res) => res.json())
+        .then((text) => {
+           afterEl.textContent = `${text.return_string}`;
+        })
+        .catch(handleError)};
+    </script>
+  </body>
+</html>

@@ -14,11 +14,11 @@ server.post("/test", (req, res) => {
   let mutatedInput = "";
   for (x = 0; x < input.length; x++) {
     if (input[x + 1] == undefined) {
-        break
-      }
-      if ((x -1) % 3 == 0) {
-        mutatedInput += input[x + 1];
-      }
+      break;
+    }
+    if ((x - 1) % 3 == 0) {
+      mutatedInput += input[x + 1];
+    }
   }
   res.send({
     return_string: mutatedInput,
